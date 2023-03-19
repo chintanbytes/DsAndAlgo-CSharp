@@ -2,13 +2,13 @@
 using JetBrains.Annotations;
 using log4net;
 
-namespace TestLib;
+namespace MyLib;
 
 //First test class to test with my applications
-public class MyTestClass
+public class MyClass
 { 
     [NotNull]
-    private static readonly ILog log = LogManager.GetLogger(typeof(MyTestClass));
+    private static readonly ILog log = LogManager.GetLogger(typeof(MyClass));
 
     private int myIntMember;
     
@@ -24,7 +24,7 @@ public class MyTestClass
     public DateTime MyDateTimeMember {get; private set;}
 
     //Public constructor
-    public MyTestClass([NotNull]int intMember, [NotNull]String stringMember, [NotNull]DateTime dateTimeMember)
+    public MyClass([NotNull]int intMember, [NotNull]String stringMember, [NotNull]DateTime dateTimeMember)
     {
         this.MyIntMember = intMember;
         this.MyStringMember = stringMember;

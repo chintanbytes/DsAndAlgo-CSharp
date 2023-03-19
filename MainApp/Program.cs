@@ -1,5 +1,5 @@
 ﻿
-using TestLib;
+using MyLib;
 using log4net;
 using JetBrains.Annotations;
 
@@ -16,7 +16,7 @@ public class Program {
         //Load log4net configuration
         log4net.Config.XmlConfigurator.Configure(new System.IO.FileInfo("log4net.config"));
 
-        var myClass = new MyTestClass(1, "Chintan", DateTime.Now);
+        var myClass = new MyClass(1, "Chintan", DateTime.Now);
         myClass.MyTestClassMethod();    
 
         //Output to console
