@@ -14,18 +14,38 @@ public class Program
     static void Main(string[] args)
     {
 
-        //Load log4net configuration
+        // //Load log4net configuration
         log4net.Config.XmlConfigurator.Configure(new System.IO.FileInfo("log4net.config"));
 
-        var myClassInstance = new MyClass(1, "Chintan", DateTime.Now);
-        myClassInstance.MyTestClassMethod();
+        // var myClassInstance = new MyClass(1, "Chintan", DateTime.Now);
+        // myClassInstance.MyTestClassMethod();
 
-        //Output to console
-        Console.WriteLine($"{myClassInstance.MyStringMember}, you passed {myClassInstance.MyIntMember} at {myClassInstance.MyDateTimeMember}");
+        // //Output to console
+        // Console.WriteLine($"{myClassInstance.MyStringMember}, you passed {myClassInstance.MyIntMember} at {myClassInstance.MyDateTimeMember}");
 
-        //Testing various log messages with different log levels
-        log.Info("This is info message");
-        log.Warn("This is warning message");
-        log.Error("This is error message");
+        // //Testing various log messages with different log levels
+        // log.Info("This is info message");
+        // log.Warn("This is warning message");
+        // log.Error("This is error message");
+
+        //Create Linked List
+        LinkedList list  = new LinkedList();
+        list.AddNode(100);
+        list.AddNode(200);
+        list.AddNode(300);
+        list.PrintList();
+
+        list.DeleteFirst();
+        list.PrintList();
+
+        list.DeleteLast();
+        list.PrintList();
+
+        list.DeleteFirst();
+        list.DeleteFirst();
+        list.PrintList();
+        list.AddNode(100);
+        list.PrintList();
+        list.DeleteLast();
     }
 }
