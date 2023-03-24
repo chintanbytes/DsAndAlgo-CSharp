@@ -37,6 +37,42 @@ namespace MyLib
             }
         }
 
+        public void AddAtStart(int value){
+            var temp = new Node();
+            temp.Item = value;
+            temp.Next = null;
+            if(head == null){
+                head = temp;
+                tail = temp;
+            }
+            else{
+                temp.Next = head;
+                head = temp;
+            }
+        }
+
+
+        public void AddInMiddle(int value){
+            
+            //Empty
+            if(head == null)
+            {
+                AddNode(value);
+                return;
+            }
+
+            //Only 1 node
+            if(head == tail){
+             
+                AddNode(value);
+            }
+
+            var temp = new Node();
+            temp.Item = value;
+            temp.Next = head.Next;
+            head.Next = temp;            
+        }
+
         public void PrintList()
         {
             if(head is null){
