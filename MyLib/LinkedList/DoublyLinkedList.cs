@@ -19,6 +19,7 @@ namespace MyLib
         {
             if (head == null)
             {
+                head = new ListNode();
                 head.Item = item;
                 head.Next = null;
                 head.Previous = null;
@@ -39,6 +40,7 @@ namespace MyLib
         {
             if (head == null)
             {
+                head = new ListNode();
                 head.Item = item;
                 head.Next = null;
                 head.Previous = null;
