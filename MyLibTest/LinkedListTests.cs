@@ -1,10 +1,14 @@
+using MyLib;
+
 namespace MyLibTest;
 
 [TestClass]
-public class UnitTest1
+public class LinkedListTests
 {
     [TestMethod]
     public void TestMethod1()
     {
+
+
     }
 }

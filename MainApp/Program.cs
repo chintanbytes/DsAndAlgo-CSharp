@@ -17,35 +17,18 @@ public class Program
         // //Load log4net configuration
         log4net.Config.XmlConfigurator.Configure(new System.IO.FileInfo("log4net.config"));
 
-        // var myClassInstance = new MyClass(1, "Chintan", DateTime.Now);
-        // myClassInstance.MyTestClassMethod();
+        var List = new LinkedList();
+        List.TakeInputAndAddToTail();
+        List.Print();
 
-        // //Output to console
-        // Console.WriteLine($"{myClassInstance.MyStringMember}, you passed {myClassInstance.MyIntMember} at {myClassInstance.MyDateTimeMember}");
+        var NewList = new LinkedList();
+        NewList.TakeInputAndAddToHead();
+        NewList.Print();
 
-        // //Testing various log messages with different log levels
-        // log.Info("This is info message");
-        // log.Warn("This is warning message");
-        // log.Error("This is error message");
+        List.DeleteIth(1);
+        List.Print();
+        NewList.DeleteIth(1);
+        NewList.Print();
 
-        //Create Linked List
-        LinkedList list  = new LinkedList();
-        list.AddNode(100);
-        list.AddNode(200);
-        list.AddNode(300);
-        list.PrintList();
-
-        list.DeleteFirst();
-        list.PrintList();
-
-        list.DeleteLast();
-        list.PrintList();
-
-        list.DeleteFirst();
-        list.DeleteFirst();
-        list.PrintList();
-        list.AddNode(100);
-        list.PrintList();
-        list.DeleteLast();
     }
 }
