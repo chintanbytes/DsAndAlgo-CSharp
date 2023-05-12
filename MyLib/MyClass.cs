@@ -1,14 +1,12 @@
 ﻿using System.Reflection;
 using JetBrains.Annotations;
-using log4net;
 
 namespace MyLib;
 
 //First test class to test with my applications
 public class MyClass
 {
-    [NotNull]
-    private static readonly ILog log = LogManager.GetLogger(typeof(MyClass));
+
 
     private int myIntMember;
 
@@ -29,13 +27,11 @@ public class MyClass
         this.MyIntMember = intMember;
         this.MyStringMember = stringMember;
         this.MyDateTimeMember = dateTimeMember;
-
-        log.Debug("Initialized");
     }
 
     //Test method for the first class
     public void MyTestClassMethod()
     {
-        log.Debug($"Inside {MethodInfo.GetCurrentMethod().Name}");
+
     }
 }

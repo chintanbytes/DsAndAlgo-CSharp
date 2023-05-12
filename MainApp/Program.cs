@@ -1,27 +1,46 @@
 ﻿
 using MyLib;
-using log4net;
-using JetBrains.Annotations;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace MainApp;
 public class Program
 {
-    //Get logger
-    [NotNull]
-    private static readonly ILog log = LogManager.GetLogger(typeof(Program));
-
     //Main entry point of the application
     static void Main(string[] args)
     {
+        Log.Logger = new LoggerConfiguration().WriteTo.Console() // Add console sink
+        .WriteTo.File("logs/app-.txt", rollingInterval: RollingInterval.Day) // Add file sink with desired log file path
+        .MinimumLevel.Debug()
+        .CreateLogger();
 
-        // //Load log4net configuration
-        log4net.Config.XmlConfigurator.Configure(new System.IO.FileInfo("log4net.config"));
+        var services = new ServiceCollection();
+        services.AddLogging(builder =>
+        {
+            builder.AddSerilog();
+        });
 
-        var List = new LinkedList();
+        services.AddTransient<LinkedList>();
+        var serviceProvider = services.BuildServiceProvider();
+
+        var log = serviceProvider.GetService<ILogger<Program>>();
+
+
+        log.LogInformation("Hello World");
+        log.LogError("Hello World");
+        log.LogWarning("Hello World");
+        log.LogDebug("Hello World");
+        log.LogCritical("Hello World");
+
+
+        // Resolve MyClass from the DI container
+        var List = serviceProvider.GetService<LinkedList>();
+        //var List = new LinkedList();
         List.TakeInputAndAddToTail();
         List.Print();
 
-        var NewList = new LinkedList();
+        var NewList = serviceProvider.GetService<LinkedList>();
         NewList.TakeInputAndAddToHead();
         NewList.Print();
 

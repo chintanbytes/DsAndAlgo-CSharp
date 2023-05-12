@@ -3,6 +3,7 @@ MyLib/obj/*
 
 MainApp/bin/*
 MainApp/obj/*
+MainApp/logs
 
 MyLibTest/bin/*
 MyLibTest/obj/*

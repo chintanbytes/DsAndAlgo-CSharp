@@ -1,21 +1,21 @@
 using JetBrains.Annotations;
-using log4net;
+using Microsoft.Extensions.Logging;
 
 namespace MyLib
 {
     public class LinkedList
     {
-        //Get logger
-        [NotNull]
-        private static readonly ILog log = LogManager.GetLogger(typeof(LinkedList));
-
         private Node tail;
         private Node head;
+        private readonly ILogger<LinkedList> logger;
 
-        public LinkedList()
+        public LinkedList(ILogger<LinkedList> logger)
         {
             tail = null;
             head = null;
+            this.logger = logger;
+
+            this.logger.LogInformation("LinkedList created");
         }
 
         public void AddNode(int value)
@@ -82,7 +82,7 @@ namespace MyLib
         {
             if (head is null)
             {
-                log.Warn("List is empty");
+
             }
             var temp = head;
             while (temp is not null)
@@ -109,7 +109,7 @@ namespace MyLib
             }
             else
             {
-                log.Warn("List is empty.");
+                //log.Warn("List is empty.");
                 return 0;
             }
         }
@@ -139,7 +139,7 @@ namespace MyLib
             }
             else
             {
-                log.Warn("List is empty.");
+                //log.Warn("List is empty.");
                 return 0;
             }
         }
